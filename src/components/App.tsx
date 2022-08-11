@@ -10,6 +10,7 @@ import Registration from "./auth/Registration";
 import Login from "./auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../actions/user";
+import Index from "./index/Index";
 
 function App() {
   const isAuth = useSelector((state: any) => state.user.isAuth);
@@ -24,6 +25,9 @@ function App() {
       <div className="app">
         <NavbarLiveReader />
         <div className="wrap">
+          <Routes>
+            <Route path="/" element={<Index />} />
+          </Routes>
           {!isAuth ? (
             <Routes>
               <Route path="/register" element={<Registration />} />

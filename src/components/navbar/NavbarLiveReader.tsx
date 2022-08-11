@@ -18,10 +18,10 @@ function NavbarLiveReader() {
         <Navbar.Brand href="/">Live Reader</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/authors">Authors</Nav.Link>
-            <Nav.Link href="/features">Books</Nav.Link>
-            {isAuth && (
+          {isAuth && (
+            <Nav className="me-auto">
+              <Nav.Link href="/authors">Authors</Nav.Link>
+              <Nav.Link href="/features">Books</Nav.Link>
               <NavDropdown title="Actions" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Create author
@@ -29,10 +29,13 @@ function NavbarLiveReader() {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.2">Add book</NavDropdown.Item>
               </NavDropdown>
-            )}
+            </Nav>
+          )}
+          <Nav>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           {!isAuth ? (
-            <Nav>
+            <Nav className="ml-auto">
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
             </Nav>
