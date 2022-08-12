@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import Input from "../../utils/input/Input";
 import { useDispatch } from "react-redux";
 import { login } from "../../actions/user";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const submitHandler = (): void => {
+    dispatch(login(email, password));
+    navigate("/");
+  };
 
   return (
     <section className="dark:bg-gray-900">
@@ -36,7 +43,7 @@ const Login = () => {
             />
             <button
               className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => dispatch(login(email, password))}
+              onClick={() => submitHandler()}
             >
               Login
             </button>

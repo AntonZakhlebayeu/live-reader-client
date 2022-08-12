@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AnyAction } from "redux";
-import { getAuthor } from "../../actions/author";
+import { deleteAuthor, getAuthor } from "../../actions/author";
 import AuthorBooks from "./AuthorBooks";
 
 function Author() {
@@ -13,7 +13,14 @@ function Author() {
     dispatch(getAuthor(id!));
   }, [dispatch, id]);
 
+  const isAuth = useSelector((state: any) => state.user.isAuth);
   const author = useSelector((state: AnyAction) => state.author.author);
+  const navigate = useNavigate();
+
+  const deleteHandler = (): void => {
+    deleteAuthor(id!, dispatch);
+    navigate("/authors/");
+  };
 
   return (
     <div className="mt-10 ml-10 grid overflow-hidden dark sm grid-cols-4 auto-rows-max gap-3 gap-x-0 gap-y-10 grid-flow-row w-screen h-auto">
@@ -25,9 +32,25 @@ function Author() {
         />
       </div>
       <div className="ml-10 font-mono">
-        <p className="text-4xl text-center subpixel-antialiased">
+        <p className="text-4xl text-center subpixel-antialiased inline-block">
           <strong>{author.firstName + " " + author.lastName}</strong>
         </p>
+        {isAuth && (
+          <div>
+            <button
+              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => navigate(`/update/author/${id}`)}
+            >
+              Update
+            </button>
+            <button
+              className="mt-3 w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => deleteHandler()}
+            >
+              Delete
+            </button>
+          </div>
+        )}
         <p className="text-3xl mt-10">Age: {author.age}</p>
         <p className="text-3xl mt-10">Author books:</p>
         <div className="grid overflow-hidden dark sm grid-cols-4 auto-rows-max gap-3 gap-x-0 gap-y-10 grid-flow-row w-screen h-auto">

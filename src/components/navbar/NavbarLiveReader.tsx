@@ -22,11 +22,11 @@ function NavbarLiveReader() {
             <Nav className="me-auto">
               <Nav.Link href="/authors">Authors</Nav.Link>
               <NavDropdown title="Actions" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item href="/create/author">
                   Create author
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.2">Add book</NavDropdown.Item>
+                <NavDropdown.Item href="/book/add">Add book</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           )}

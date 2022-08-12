@@ -11,9 +11,11 @@ import Login from "./auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../actions/user";
 import Index from "./index/Index";
-import Book from "./book/Book";
 import Author from "./author/Author";
 import Authors from "./author/Authors";
+import CreateAuthor from "./author/CreateAuthor";
+import Book from "./book/Book";
+import UpdateAuthor from "./author/UpdateAuthor";
 
 function App() {
   const isAuth = useSelector((state: any) => state.user.isAuth);
@@ -41,6 +43,8 @@ function App() {
             </Routes>
           ) : (
             <Routes>
+              <Route path="/create/author" element={<CreateAuthor />} />
+              <Route path="/update/author/:id" element={<UpdateAuthor />} />
               <Route path="/login" element={<Navigate replace to="/" />} />
             </Routes>
           )}
