@@ -11,6 +11,9 @@ import Login from "./auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../actions/user";
 import Index from "./index/Index";
+import Book from "./book/Book";
+import Author from "./author/Author";
+import Authors from "./author/Authors";
 
 function App() {
   const isAuth = useSelector((state: any) => state.user.isAuth);
@@ -27,6 +30,9 @@ function App() {
         <div className="wrap">
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/book/:id" element={<Book />} />
+            <Route path="/author/:id" element={<Author />} />
+            <Route path="/authors/" element={<Authors />} />
           </Routes>
           {!isAuth ? (
             <Routes>

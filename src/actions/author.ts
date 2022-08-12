@@ -2,24 +2,24 @@ import { API_URL } from "../config";
 import axios from "axios";
 import { AnyAction } from "redux";
 import { Dispatch } from "react";
-import { setBook, setBooks } from "../reducers/bookReducer";
+import { setAuthor, setAuthors } from "../reducers/authorReducer";
 
-export const getBooks = (): any => {
+export const getAuthors = (): any => {
   return async (dispatch: Dispatch<AnyAction>) => {
     try {
-      const response = await axios.get(`${API_URL}api/book/`);
-      dispatch(setBooks(response.data));
+      const response = await axios.get(`${API_URL}api/author/`);
+      dispatch(setAuthors(response.data));
     } catch (e: any) {
       alert(e.response.data.message);
     }
   };
 };
 
-export const getBook = (id: string): any => {
+export const getAuthor = (id: string): any => {
   return async (dispatch: Dispatch<AnyAction>) => {
     try {
-      const response = await axios.get(`${API_URL}api/book/${id}`);
-      dispatch(setBook(response.data));
+      const response = await axios.get(`${API_URL}api/author/${id}`);
+      dispatch(setAuthor(response.data));
     } catch (e: any) {
       alert(e.response.data.message);
     }

@@ -21,7 +21,6 @@ function NavbarLiveReader() {
           {isAuth && (
             <Nav className="me-auto">
               <Nav.Link href="/authors">Authors</Nav.Link>
-              <Nav.Link href="/features">Books</Nav.Link>
               <NavDropdown title="Actions" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Create author
@@ -32,6 +31,7 @@ function NavbarLiveReader() {
             </Nav>
           )}
           <Nav>
+            {!isAuth && <Nav.Link href="/authors">Authors</Nav.Link>}
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           {!isAuth ? (

@@ -11,7 +11,7 @@ function Index() {
   }, [dispatch]);
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 mb-10">
       <BooksList />
     </div>
   );

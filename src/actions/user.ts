@@ -34,7 +34,6 @@ export const login = (email: string, password: string): any => {
         email,
         password,
       });
-      console.log(response.data.user);
       dispatch(setUser(response.data.user));
       localStorage.setItem("token", response.data.accessToken);
     } catch (e: any) {
@@ -50,9 +49,7 @@ export const auth = (): any => {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       dispatch(setUser(response.data.user));
-      console.log(response.data.user);
       localStorage.setItem("token", response.data.token.accessToken);
-      console.log(response.data.token.accessToken);
     } catch (e) {
       localStorage.removeItem("token");
     }
