@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
-import NavDropdown from "react-bootstrap/esm/NavDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { AnyAction } from "redux";
 import { logout } from "../../reducers/userReducer";
@@ -21,13 +20,7 @@ function NavbarLiveReader() {
           {isAuth && (
             <Nav className="me-auto">
               <Nav.Link href="/authors">Authors</Nav.Link>
-              <NavDropdown title="Actions" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/create/author">
-                  Create author
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="/book/add">Add book</NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="/create/author">Create author</Nav.Link>
             </Nav>
           )}
           <Nav>

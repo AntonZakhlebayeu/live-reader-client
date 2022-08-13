@@ -18,6 +18,7 @@ import Book from "./book/Book";
 import UpdateAuthor from "./author/UpdateAuthor";
 import CreateBook from "./book/CreateBook";
 import UpdateBook from "./book/UpdateBook";
+import About from "./about/About";
 
 function App() {
   const isAuth = useSelector((state: any) => state.user.isAuth);
@@ -37,6 +38,7 @@ function App() {
             <Route path="/book/:id" element={<Book />} />
             <Route path="/author/:id" element={<Author />} />
             <Route path="/authors/" element={<AuthorsList />} />
+            <Route path="/about" element={<About />} />
           </Routes>
           {!isAuth ? (
             <Routes>
