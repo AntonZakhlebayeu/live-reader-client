@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { AnyAction } from "redux";
-import BookSmall from "./book/BookSmall";
+import BookCard from "./book/BookCard";
 
 function BooksList() {
   const isAuth = useSelector((state: AnyAction) => state.user.isAuth);
@@ -24,7 +24,7 @@ function BooksList() {
   return (
     <div className="grid overflow-hidden dark sm grid-cols-4 auto-rows-max gap-3 gap-x-0 gap-y-10 grid-flow-row w-screen h-auto place-items-center">
       {books.map((book: any) => (
-        <BookSmall key={book.id} book={book} />
+        <BookCard key={book.id} book={book} />
       ))}
     </div>
   );

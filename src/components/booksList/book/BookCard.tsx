@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const BookSmall = ({ book }: any) => {
+const BookCard = ({ book }: any) => {
   const date = new Date(book.createdAt);
   const urlBook = `/book/${book.id}`;
   const urlAuthor = `/author/${book.author.id}`;
@@ -11,7 +11,7 @@ const BookSmall = ({ book }: any) => {
       <img
         className="w-full"
         src="https://www.kindpng.com/picc/m/114-1145774_add-book-icon-add-book-icon-png-transparent.png"
-        alt="BookSmall cover"
+        alt="BookCard cover"
       />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">
@@ -37,4 +37,4 @@ const BookSmall = ({ book }: any) => {
   );
 };
 
-export default BookSmall;
+export default BookCard;

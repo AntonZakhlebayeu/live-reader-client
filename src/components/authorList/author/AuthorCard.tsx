@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const AuthorSmall = ({ author }: any) => {
+const AuthorCard = ({ author }: any) => {
   return (
     <div className="max-w-sm w-full lg:max-w-full lg:flex">
       <div
@@ -27,4 +27,4 @@ const AuthorSmall = ({ author }: any) => {
   );
 };
 
-export default AuthorSmall;
+export default AuthorCard;

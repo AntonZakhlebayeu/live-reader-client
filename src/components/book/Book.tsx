@@ -25,7 +25,7 @@ function Book() {
         <img
           className="rounded-3xl"
           src="https://www.kindpng.com/picc/m/114-1145774_add-book-icon-add-book-icon-png-transparent.png"
-          alt="BookSmall cover"
+          alt="BookCard cover"
         />
       </div>
       <div className="ml-10 font-mono">

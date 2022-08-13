@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../actions/user";
 import Index from "./index/Index";
 import Author from "./author/Author";
-import Authors from "./author/Authors";
+import AuthorsList from "./authorList/AuthorsList";
 import CreateAuthor from "./author/CreateAuthor";
 import Book from "./book/Book";
 import UpdateAuthor from "./author/UpdateAuthor";
@@ -34,7 +34,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/book/:id" element={<Book />} />
             <Route path="/author/:id" element={<Author />} />
-            <Route path="/authors/" element={<Authors />} />
+            <Route path="/authors/" element={<AuthorsList />} />
           </Routes>
           {!isAuth ? (
             <Routes>
