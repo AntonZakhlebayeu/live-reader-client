@@ -16,6 +16,8 @@ import AuthorsList from "./authorsList/AuthorsList";
 import CreateAuthor from "./author/CreateAuthor";
 import Book from "./book/Book";
 import UpdateAuthor from "./author/UpdateAuthor";
+import CreateBook from "./book/CreateBook";
+import UpdateBook from "./book/UpdateBook";
 
 function App() {
   const isAuth = useSelector((state: any) => state.user.isAuth);
@@ -44,7 +46,9 @@ function App() {
           ) : (
             <Routes>
               <Route path="/create/author" element={<CreateAuthor />} />
+              <Route path="/add/book/:authorId" element={<CreateBook />} />
               <Route path="/update/author/:id" element={<UpdateAuthor />} />
+              <Route path="/update/book/:id" element={<UpdateBook />} />
               <Route path="/login" element={<Navigate replace to="/" />} />
             </Routes>
           )}

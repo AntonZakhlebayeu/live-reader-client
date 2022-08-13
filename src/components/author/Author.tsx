@@ -49,6 +49,13 @@ function Author() {
             >
               Delete
             </button>
+
+            <button
+              className="mt-11 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => navigate(`/add/book/${id}`)}
+            >
+              Add book
+            </button>
           </div>
         )}
         <p className="text-3xl mt-10">Age: {author.age}</p>

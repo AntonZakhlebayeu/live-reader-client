@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { AnyAction } from "redux";
-import { getBook } from "../../actions/book";
+import { deleteBook, getBook } from "../../actions/book";
 
 function Book() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAuth = useSelector((state: any) => state.user.isAuth);
 
   useEffect(() => {
     dispatch(getBook(id!));
   }, [dispatch, id]);
 
+  const deleteHandler = (): void => {
+    deleteBook(id!, dispatch);
+    navigate("/");
+  };
+
   const book = useSelector((state: AnyAction) => state.book.book);
-  console.log(book);
   const urlAuthor = book.author ? `/author/${book?.author.id}` : "/";
   const fullName = book.author
     ? book.author.firstName + " " + book.author.lastName
@@ -46,6 +52,22 @@ function Book() {
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             {new Date(book.createdAt).toUTCString()}
           </span>
+          {isAuth && (
+            <div>
+              <button
+                className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => navigate(`/update/book/${id}`)}
+              >
+                Update
+              </button>
+              <button
+                className="mt-3 w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => deleteHandler()}
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
