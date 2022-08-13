@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../actions/user";
 import Index from "./index/Index";
 import Author from "./author/Author";
-import AuthorsList from "./authorList/AuthorsList";
+import AuthorsList from "./authorsList/AuthorsList";
 import CreateAuthor from "./author/CreateAuthor";
 import Book from "./book/Book";
 import UpdateAuthor from "./author/UpdateAuthor";
