@@ -38,10 +38,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 If you cloned my live-reader-api. In it's directory, you can run:
 
-### 'docker-compose build'
+### `docker-compose build`
 
 This creates docker container with database, api and client.
 
-### 'docker-compose up'
+### `docker-compose up`
 
 This starts up docker-container and you can access client side with http://localhost:3000 and api with http://localhost:8000.
